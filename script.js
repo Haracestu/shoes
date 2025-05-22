@@ -207,20 +207,20 @@ function displayResults(shoes) {
     if (shoes.length === 0) {
         resultsContainer.innerHTML = '<div class="col-12 text-center"><h3>找不到符合的鞋子</h3></div>';
         return;
-    }
-
-    shoes.forEach(shoe => {
+    }    shoes.forEach(shoe => {
         const shoeCard = document.createElement('div');
         shoeCard.className = 'col-md-4 col-lg-3';
         shoeCard.innerHTML = `
             <div class="shoe-card position-relative">
-                <img src="${shoe.image}" alt="${shoe.name}" class="card-img-top">
-                <span class="brand-badge">${shoe.brand}</span>
-                <div class="card-body">
-                    <h5 class="card-title">${shoe.name}</h5>
-                    <p class="card-text">${shoe.description}</p>
-                    <p class="shoe-price">NT$ ${shoe.price}</p>
-                </div>
+                <a href="detail.html?id=${shoe.id}" class="text-decoration-none">
+                    <img src="${shoe.image}" alt="${shoe.name}" class="card-img-top">
+                    <span class="brand-badge">${shoe.brand}</span>
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">${shoe.name}</h5>
+                        <p class="card-text text-secondary">${shoe.description}</p>
+                        <p class="shoe-price">NT$ ${shoe.price}</p>
+                    </div>
+                </a>
             </div>
         `;
         resultsContainer.appendChild(shoeCard);
